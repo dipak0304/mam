@@ -404,6 +404,26 @@ The world’s better with you in it!
     }
   });
 </script>
+    const diaryImageList = [
+  'img/mam.jpg',
+  'img/diary1.jpg',
+  'img/diary2.jpg',
+  'img/diary3.jpg'
+];
+
+const diaryImg = document.getElementById('diary-img');
+
+diaryImg.addEventListener('click', function (e) {
+  e.stopPropagation(); // Stop music play on image click
+
+  let currentSrc = this.src.split('/').pop();
+  let newSrc;
+  do {
+    newSrc = diaryImageList[Math.floor(Math.random() * diaryImageList.length)];
+  } while (newSrc === currentSrc); // Avoid same image
+
+  this.src = 'img/' + newSrc;
+});
 <script>
  
 </script>
